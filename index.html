@@ -8,11 +8,19 @@
     <style>
         @keyframes reveal {
             0% {
-                -webkit-mask-size: 0% 0%;
+                /* -webkit-mask-size: 0% 0%; */
+                clip-path: inset(50% round 50%); 
+                /* filter: grayscale(100%) blur(10px); */
+            }
+            20% {
+                /* -webkit-mask-size: 0% 0%; */
+                clip-path: inset(50% round 50%); 
                 /* filter: grayscale(100%) blur(10px); */
             }
             100% {
-                -webkit-mask-size: 100% 100%;
+                /* -webkit-mask-size: 100% 100%; */
+                clip-path: inset(0% round 0%);
+                
                 /* filter: grayscale(0%) blur(0); */
             }
         }
@@ -23,20 +31,16 @@
 } */
 
         .first-img {
-            -webkit-mask-image: linear-gradient(black, black);
+            /* -webkit-mask-image: linear-gradient(black, black);
     -webkit-mask-size: 0% 0%;
     -webkit-mask-repeat: no-repeat;
-    -webkit-mask-position: center top;
+    -webkit-mask-position: center top; */
+
             object-fit: cover;
             width: 100vw;
             height: 100vh;
             display: block;
-            animation: reveal linear;
-            animation-duration: auto;
-            animation-timeline: view(block);
-            animation-range: entry 0% entry 100%;
             margin-inline: auto;
-            animation-fill-mode: forwards;
             position: sticky;
             top: 0;
         }
@@ -120,9 +124,10 @@
     <h1 class="nabla">Ollie Williams</h1>
     </div>
    <div style="height: 100vh;">
-    <img class="first-img" src="abstract.avif" alt="">
-    <!-- <video loop autoplay muted class="first-img" src="giffgaffscrolled.webm"></video> -->
+    <!-- <img class="first-img" src="abstract.avif" alt=""> -->
+    <div style="background-color: white; display: flex;" class="first-img">
+        <h2 style="margin: auto;"><a href="https://twitter.com/hypeddev">@hypeddev</a> </h2>
+    </div>
    </div>
-    <div style="height: 100vh; background-color: white; position: relative; z-index: 2;"></div>
 </body>
 </html>
