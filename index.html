@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @keyframes reveal {
+            0% {
+                -webkit-mask-size: 0% 0%;
+                /* filter: grayscale(100%) blur(10px); */
+            }
+            100% {
+                -webkit-mask-size: 100% 100%;
+                /* filter: grayscale(0%) blur(0); */
+            }
+        }
+/* 
+        @keyframes fadeOut {
+    0% {opacity: 0; scale: .98; filter: blur(1px);}
+    100% {opacity: 1; scale: 1; filter: blur(0px);}
+} */
+
+        .first-img {
+            -webkit-mask-image: linear-gradient(black, black);
+    -webkit-mask-size: 0% 0%;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center top;
+            object-fit: cover;
+            width: 100vw;
+            height: 100vh;
+            display: block;
+            animation: reveal linear;
+            animation-duration: auto;
+            animation-timeline: view(block);
+            animation-range: entry 0% entry 100%;
+            margin-inline: auto;
+            animation-fill-mode: forwards;
+            position: sticky;
+            top: 0;
+        }
+
+        body {
+            margin: 0;
+            background-image: url(ellipsis2.svg);
+            background-size: 24px;
+            background-attachment: fixed;
+            overflow-x: hidden;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        @font-face {
+    font-family: "Nabla";
+    src: url("Nabla-variable.woff2") format("woff2-variations");
+  }
+
+  @keyframes font3d {
+    0% {
+        font-variation-settings: "EDPT" 0, "EHLT" 0;
+    }
+    40% {
+        font-variation-settings: "EDPT" 0, "EHLT" 0;
+    }
+    90% {
+        opacity: 1; scale: 1; filter: blur(0px);
+        font-variation-settings: "EDPT" 200, "EHLT" 24;
+    }
+    100% {
+        opacity: 0; scale: .98; filter: blur(7px);
+        font-variation-settings: "EDPT" 200, "EHLT" 24;
+    }
+}
+
+@font-palette-values --Purple {
+    font-family: Nabla;
+    base-palette: 1;
+    override-colors: 
+    0 #5651FF,
+    1 #4B46D9;
+    @supports(lch(57% 132 329)) {
+        override-colors: 
+        0 lch(44.278% 132 296.455),
+        1 lch(57% 132 329);
+    }
+  }
+
+  .nabla {
+    font-family: 'Nabla';
+    margin: auto;
+    font-size: 70px;
+    font-palette: --Purple;
+    font-variation-settings: "EDPT" 0, "EHLT" 0;
+    animation: font3d linear;
+    animation-timeline: view(block);
+    animation-duration: auto;
+    inset: 0;
+    position: fixed;
+    height: fit-content;
+    width: fit-content;
+    animation-range: contain 0% exit-crossing 100%;
+    animation-fill-mode: both;
+}
+
+@keyframes fadeIn {
+    0% {opacity: 0; scale: .98; filter: blur(1px);}
+    100% {opacity: 1; scale: 1; filter: blur(0px);}
+}
+
+.figjam {
+    display: grid;
+}
+    </style>
+</head>
+<body>
+    <div class="figjam" style="height: 100vh">
+    <h1 class="nabla">Ollie Williams</h1>
+    </div>
+   <div style="height: 100vh;">
+    <img class="first-img" src="abstract.avif" alt="">
+    <!-- <video loop autoplay muted class="first-img" src="giffgaffscrolled.webm"></video> -->
+   </div>
+    <div style="height: 100vh; background-color: white; position: relative; z-index: 2;"></div>
+</body>
+</html>
